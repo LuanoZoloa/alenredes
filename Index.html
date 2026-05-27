@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ale en Redes | Estrategia y Contenido para Emprendedoras</title>
+<meta name="description" content="Transformo el caos de tus ideas en contenido estratégico que conecta y vende. Asesorías 1:1 y estrategia de contenido para emprendedoras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  /* ── Cromática refinada ── */
+  --accent:#D6006C;
+  --accent-bright:#FF0080;
+  --accent-soft:rgba(214,0,108,.08);
+  --accent-mist:rgba(214,0,108,.04);
+  --neon:#B8FF00;
+  --neon-muted:#CDFF4D;
+
+  --gradient-cta:linear-gradient(135deg,#D6006C 0%,#FF0080 45%,#FF4DA6 100%);
+  --gradient-accent:linear-gradient(135deg,var(--accent),var(--accent-bright));
+
+  --white:#FFFFFF;
+  --cream:#FDFCFA;
+  --warm-gray:#F8F6F3;
+  --border:rgba(0,0,0,.06);
+  --text:#1A1A1A;
+  --text-secondary:#6B6B6B;
+  --text-tertiary:#9A9A9A;
+
+  /* ── Tipografía ── */
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+
+  /* ── Layout ── */
+  --max-w:1100px;
+  --radius:14px;
+  --radius-lg:22px;
+  --radius-xl:28px;
+
+  /* ── Sombras ── */
+  --shadow-subtle:0 1px 3px rgba(0,0,0,.04);
+  --shadow-card:0 4px 24px rgba(0,0,0,.05);
+  --shadow-elevated:0 12px 40px rgba(0,0,0,.08);
+  --shadow-cta:0 8px 28px rgba(214,0,108,.25);
+
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+@media(min-width:768px){.container{padding:0 40px}}
+
+/* ═══════════════════════════════════
+   NAV
+   ═══════════════════════════════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .5s var(--ease)}
+.nav.scrolled{background:rgba(253,252,250,.92);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);padding:14px 0;box-shadow:0 1px 0 var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--text);letter-spacing:-.02em}
+.nav-logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:none;gap:32px;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-secondary);letter-spacing:.01em;transition:color .3s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:10px 26px;background:var(--gradient-cta);color:var(--white);font-size:.85rem;font-weight:600;border-radius:100px;transition:transform .3s var(--ease),box-shadow .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:var(--shadow-cta)}
+@media(min-width:960px){.nav-links{display:flex}}
+.nav-m{display:flex}
+@media(min-width:960px){.nav-m{display:none}}
+
+/* ═══════════════════════════════════
+   HERO
+   ═══════════════════════════════════ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;overflow:hidden;background:var(--cream)}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(214,0,108,.05) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(184,255,0,.04) 0%,transparent 70%);pointer-events:none}
+
+.hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;position:relative;z-index:2}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.1fr 1fr;gap:64px}}
+
+.hero-content{text-align:center}
+@media(min-width:960px){.hero-content{text-align:left}}
+
+.hero-label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;position:relative;padding-left:28px}
+.hero-label::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:18px;height:2px;background:var(--gradient-cta);border-radius:2px}
+
+.hero h1{font-family:var(--serif);font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.1;color:var(--text);margin-bottom:28px;font-weight:600;letter-spacing:-.03em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+
+.hero-sub{font-size:clamp(.95rem,1.6vw,1.08rem);color:var(--text-secondary);max-width:480px;margin-bottom:44px;line-height:1.85;font-weight:400}
+@media(max-width:959px){.hero-sub{margin-left:auto;margin-right:auto}}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+@media(min-width:960px){.hero-actions{justify-content:flex-start}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;border-radius:100px;border:none;cursor:pointer;transition:all .35s var(--ease);letter-spacing:.01em;font-size:.95rem}
+.btn--primary{padding:16px 36px;background:var(--gradient-cta);color:var(--white);box-shadow:0 4px 16px rgba(214,0,108,.2)}
+.btn--primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-cta)}
+.btn--primary svg{width:16px;height:16px;stroke:var(--white);stroke-width:2;fill:none}
+.btn--ghost{padding:16px 36px;background:transparent;color:var(--text);border:1.5px solid rgba(0,0,0,.12)}
+.btn--ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* Hero photo */
+.hero-visual{display:flex;justify-content:center;position:relative}
+.hero-img-wrap{position:relative;width:340px;height:440px;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-elevated)}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.3);border-radius:var(--radius-xl);pointer-events:none}
+
+/* Floating badge */
+.hero-badge{position:absolute;background:var(--white);box-shadow:var(--shadow-card);border-radius:var(--radius);padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:600;color:var(--text);z-index:3}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.hero-badge--1{top:12%;right:-16px;animation:hf 5s ease-in-out infinite}
+.hero-badge--1 .hero-badge-dot{background:var(--accent)}
+.hero-badge--2{bottom:16%;left:-20px;animation:hf 5s ease-in-out 2s infinite}
+.hero-badge--2 .hero-badge-dot{background:var(--neon)}
+@keyframes hf{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* Decorative shapes */
+.hero-shape{position:absolute;border-radius:50%;z-index:0;pointer-events:none}
+.hero-shape--1{width:120px;height:120px;border:1.5px solid rgba(214,0,108,.1);top:-12px;right:-16px}
+.hero-shape--2{width:80px;height:80px;background:rgba(184,255,0,.08);bottom:-10px;left:-14px}
+
+@media(max-width:959px){
+  .hero-img-wrap{width:270px;height:350px}
+  .hero-badge{padding:10px 14px;font-size:.72rem}
+  .hero-badge--1{right:-8px}
+  .hero-badge--2{left:-8px}
+}
+
+/* ═══════════════════════════════════
+   TRUST
+   ═══════════════════════════════════ */
+.trust{padding:36px 0;background:var(--white);border-bottom:1px solid var(--border)}
+.trust-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 40px}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.84rem;font-weight:500;color:var(--text-secondary)}
+.trust-pip{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;opacity:.6}
+
+/* ═══════════════════════════════════
+   SHARED SECTION STYLES
+   ═══════════════════════════════════ */
+.s-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:inline-flex;align-items:center;gap:8px}
+.s-label::before{content:'';width:16px;height:1.5px;background:var(--accent);border-radius:2px;display:inline-block}
+.s-title{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;color:var(--text);margin-bottom:20px;font-weight:600;letter-spacing:-.02em}
+.s-title em{font-style:italic;color:var(--accent)}
+.s-header{text-align:center;max-width:580px;margin:0 auto 64px}
+.s-header p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-top:14px}
+
+/* ═══════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════ */
+.about{padding:120px 0;background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center}
+@media(min-width:960px){.about-grid{grid-template-columns:.9fr 1.1fr;gap:80px}}
+
+.about-visual{position:relative;display:flex;justify-content:center}
+.about-img{width:100%;max-width:400px;aspect-ratio:3/4;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-elevated);position:relative}
+.about-img img{width:100%;height:100%;object-fit:cover}
+
+.about-accent{position:absolute;bottom:-16px;right:-16px;background:var(--text);color:var(--white);padding:16px 24px;border-radius:var(--radius);font-family:var(--serif);font-size:.95rem;font-weight:500;font-style:italic;letter-spacing:-.01em;box-shadow:var(--shadow-card)}
+@media(max-width:959px){.about-accent{right:50%;transform:translateX(50%);bottom:-20px}}
+
+.about-text{color:var(--text-secondary);font-size:1.02rem;line-height:1.9;margin-bottom:24px}
+.about-text strong{color:var(--text);font-weight:600}
+
+.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.about-tag{padding:8px 18px;border:1px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:600;color:var(--text);letter-spacing:.02em;transition:all .3s}
+.about-tag:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ═══════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════ */
+.services{padding:120px 0;background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:700px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+
+.service-card{background:var(--white);border-radius:var(--radius-lg);padding:44px 32px 40px;border:1px solid var(--border);transition:all .45s var(--ease);position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-elevated);border-color:transparent}
+
+.service-num{font-family:var(--serif);font-size:3.2rem;font-weight:700;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px;letter-spacing:-.04em}
+.service-card:hover .service-num{color:rgba(214,0,108,.08)}
+
+.service-card h3{font-family:var(--serif);font-size:1.4rem;color:var(--text);margin-bottom:14px;font-weight:600;letter-spacing:-.01em}
+.service-card p{color:var(--text-secondary);font-size:.9rem;line-height:1.8;margin-bottom:28px}
+
+.service-link{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:600;color:var(--accent);transition:gap .3s}
+.service-link:hover{gap:12px}
+.service-link svg{width:14px;height:14px;stroke:var(--accent);stroke-width:2.5;fill:none;transition:transform .3s}
+.service-link:hover svg{transform:translateX(3px)}
+
+/* ═══════════════════════════════════
+   BENEFITS
+   ═══════════════════════════════════ */
+.benefits{padding:120px 0;background:var(--white);position:relative}
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(min-width:700px){.benefits-grid{grid-template-columns:repeat(4,1fr);gap:18px}}
+
+.benefit-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 24px;text-align:center;transition:all .4s var(--ease);background:var(--white)}
+.benefit-card:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(214,0,108,.06);transform:translateY(-4px)}
+
+.benefit-mark{width:44px;height:44px;margin:0 auto 18px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--accent);font-style:italic;transition:all .4s}
+.benefit-card:hover .benefit-mark{background:var(--gradient-cta);color:var(--white)}
+
+.benefit-card h4{font-family:var(--serif);font-size:1.05rem;color:var(--text);margin-bottom:8px;font-weight:600}
+.benefit-card p{font-size:.82rem;color:var(--text-secondary);line-height:1.65}
+
+/* ═══════════════════════════════════
+   TESTIMONIALS
+   ═══════════════════════════════════ */
+.testimonials{padding:120px 0;background:var(--cream)}
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:700px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
+
+.test-card{background:var(--white);border-radius:var(--radius-lg);padding:40px 32px;border:1px solid var(--border);transition:all .4s var(--ease)}
+.test-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-elevated);border-color:transparent}
+
+.test-quote{position:relative;margin-bottom:28px}
+.test-quote::before{content:'"';font-family:var(--serif);font-size:4rem;line-height:1;color:rgba(214,0,108,.1);position:absolute;top:-16px;left:-4px;pointer-events:none}
+.test-quote p{font-size:.92rem;color:var(--text-secondary);line-height:1.85;font-style:italic;padding-top:20px}
+
+.test-author{display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid var(--border)}
+.test-avatar{width:42px;height:42px;border-radius:50%;background:var(--text);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.85rem;font-family:var(--serif);flex-shrink:0}
+.test-name{font-weight:600;font-size:.88rem;color:var(--text)}
+.test-role{font-size:.75rem;color:var(--text-tertiary);margin-top:2px}
+
+/* ═══════════════════════════════════
+   FORM
+   ═══════════════════════════════════ */
+.form-section{padding:120px 0;background:var(--white)}
+.form-wrap{max-width:720px;margin:0 auto;background:var(--cream);border-radius:var(--radius-xl);padding:48px 28px;border:1px solid var(--border)}
+@media(min-width:700px){.form-wrap{padding:56px 48px}}
+.form-wrap .s-header{margin-bottom:36px}
+.form-wrap iframe{width:100%;min-height:620px;border:none;border-radius:var(--radius)}
+
+/* ═══════════════════════════════════
+   FINAL CTA
+   ═══════════════════════════════════ */
+.final-cta{padding:120px 0;background:var(--text);text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(214,0,108,.15) 0%,transparent 60%);pointer-events:none}
+
+.final-content{position:relative;z-index:1}
+.final-line{width:40px;height:2px;background:var(--gradient-cta);margin:0 auto 32px;border-radius:2px}
+.final-cta h2{font-family:var(--serif);font-size:clamp(1.6rem,3.8vw,2.4rem);color:var(--white);line-height:1.25;margin-bottom:16px;font-weight:600;max-width:640px;margin-left:auto;margin-right:auto;letter-spacing:-.02em}
+.final-cta h2 em{font-style:italic;color:var(--accent-bright)}
+.final-cta>div>p{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:44px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.75}
+.btn--light{padding:18px 42px;background:var(--white);color:var(--text);font-size:.95rem;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.btn--light:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.2)}
+.btn--light svg{width:16px;height:16px;stroke:var(--text);stroke-width:2;fill:none}
+
+/* ═══════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════ */
+.footer{padding:48px 0;background:#111;text-align:center}
+.footer-brand{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:24px}
+.footer-brand em{font-style:italic;color:var(--accent-bright)}
+.footer-socials{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+.footer-social{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.1);transition:all .3s var(--ease)}
+.footer-social:hover{border-color:var(--accent);background:rgba(214,0,108,.1);transform:translateY(-2px)}
+.footer-social svg{width:18px;height:18px;stroke:rgba(255,255,255,.5);stroke-width:1.8;fill:none;transition:stroke .3s}
+.footer-social:hover svg{stroke:var(--accent-bright)}
+.footer-social--wa svg{fill:rgba(255,255,255,.5);stroke:none}
+.footer-social--wa:hover svg{fill:var(--accent-bright)}
+.footer p{color:rgba(255,255,255,.25);font-size:.78rem}
+
+/* ═══════════════════════════════════
+   WHATSAPP FLOAT
+   ═══════════════════════════════════ */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:900}
+.wa-btn{width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .3s var(--ease);position:relative}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-btn svg{width:28px;height:28px;fill:var(--white)}
+.wa-ring{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.25);animation:ring 2.5s ease-out infinite;pointer-events:none}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv-1{transition-delay:.06s}.rv-2{transition-delay:.12s}.rv-3{transition-delay:.18s}.rv-4{transition-delay:.24s}
+
+/* ═══════════════════════════════════
+   HERO ENTRANCE
+   ═══════════════════════════════════ */
+@keyframes hin{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-content>*{animation:hin .8s var(--ease) both}
+.hero-label{animation-delay:.05s}
+.hero h1{animation-delay:.15s}
+.hero-sub{animation-delay:.28s}
+.hero-actions{animation-delay:.42s}
+.hero-img-wrap{animation:hin 1s var(--ease) .25s both}
+.hero-badge--1{animation:hin .7s var(--ease) .55s both,hf 5s ease-in-out .55s infinite}
+.hero-badge--2{animation:hin .7s var(--ease) .7s both,hf 5s ease-in-out 2.7s infinite}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="container nav-inner">
+  <a href="#" class="nav-logo"><em>Ale</em> en Redes</a>
+  <div class="nav-links">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20asesor%C3%ADas%20y%20c%C3%B3mo%20pod%C3%A9s%20ayudarme%20a%20mejorar%20mi%20estrategia%20de%20contenido%20%F0%9F%98%8A%E2%9C%A8" class="nav-cta" target="_blank" rel="noopener">Escribime</a>
+  </div>
+  <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20asesor%C3%ADas%20y%20c%C3%B3mo%20pod%C3%A9s%20ayudarme%20a%20mejorar%20mi%20estrategia%20de%20contenido%20%F0%9F%98%8A%E2%9C%A8" class="nav-cta nav-m" target="_blank" rel="noopener">Escribime</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container hero-grid">
+  <div class="hero-content">
+    <div class="hero-label">Estrategia &amp; Contenido</div>
+    <h1>Transformo el caos de tus ideas en contenido <em>estratégico que conecta y vende.</em></h1>
+    <p class="hero-sub">Ayudo a emprendedoras a ordenar su comunicación, crear una estrategia clara y convertir Instagram en una herramienta real de ventas.</p>
+    <div class="hero-actions">
+      <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20asesor%C3%ADas%20y%20c%C3%B3mo%20pod%C3%A9s%20ayudarme%20a%20mejorar%20mi%20estrategia%20de%20contenido%20%F0%9F%98%8A%E2%9C%A8" class="btn btn--primary" target="_blank" rel="noopener">Quiero trabajar con Ale <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="#servicios" class="btn btn--ghost">Conocer mis asesorías</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-photo-container" style="position:relative">
+      <div class="hero-shape hero-shape--1"></div>
+      <div class="hero-shape hero-shape--2"></div>
+      <div class="hero-badge hero-badge--1"><span class="hero-badge-dot"></span>+100 emprendedoras</div>
+      <div class="hero-badge hero-badge--2"><span class="hero-badge-dot"></span>Resultados reales</div>
+      <div class="hero-img-wrap">
+        <img src="img/img-ale-1.jpg" alt="Ale - Estrategia y Contenido" loading="eager">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+<div class="container trust-inner">
+  <div class="trust-item"><span class="trust-pip"></span>+5 años de experiencia</div>
+  <div class="trust-item"><span class="trust-pip"></span>Asesorías 1:1 personalizadas</div>
+  <div class="trust-item"><span class="trust-pip"></span>Especialista en Instagram</div>
+  <div class="trust-item"><span class="trust-pip"></span>Estrategia con resultados</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre-mi">
+<div class="container about-grid">
+  <div class="about-visual rv">
+    <div class="about-img">
+      <img src="img/img-ale-2.jpg" alt="Ale - Sobre mí" loading="lazy">
+    </div>
+    <div class="about-accent">+5 años transformando marcas</div>
+  </div>
+  <div class="rv rv-1">
+    <div class="s-label">Sobre mí</div>
+    <h2 class="s-title">Soy Ale, y te ayudo a <em>simplificar</em> tu estrategia</h2>
+    <p class="about-text">Soy Ale y acompaño a emprendedoras que se sienten abrumadas con Instagram y no saben qué publicar para atraer clientes. Juntas <strong>ordenamos ideas, definimos una estrategia clara</strong> y creamos contenido con intención para que tu cuenta conecte y venda.</p>
+    <p class="about-text">Mi enfoque combina estrategia de contenido, psicología del consumo y un profundo entendimiento de Instagram para que cada publicación tenga un propósito: <strong>conectar con tu audiencia y generar ventas reales.</strong></p>
+    <div class="about-tags">
+      <span class="about-tag">Estrategia</span>
+      <span class="about-tag">Claridad</span>
+      <span class="about-tag">Empatía</span>
+      <span class="about-tag">Resultados</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+<div class="container">
+  <div class="s-header rv">
+    <div class="s-label">Servicios</div>
+    <h2 class="s-title">Trabajemos juntas en tu <em>estrategia</em></h2>
+    <p>Elegí el servicio que mejor se adapte a donde estás hoy y a dónde querés llegar.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card rv rv-1">
+      <div class="service-num">01</div>
+      <h3>Asesorías 1:1</h3>
+      <p>Sesiones personalizadas para analizar tu negocio, revisar tu perfil y definir acciones concretas que generen resultados desde el primer día.</p>
+      <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20info%20sobre%20las%20asesor%C3%ADas%201:1%20%F0%9F%98%8A" class="service-link" target="_blank" rel="noopener">Consultar disponibilidad <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="service-card rv rv-2">
+      <div class="service-num">02</div>
+      <h3>Plan de Acción</h3>
+      <p>Una hoja de ruta clara con pasos prácticos y adaptados a tus objetivos para que sepas exactamente qué hacer cada semana.</p>
+      <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20info%20sobre%20el%20plan%20de%20acci%C3%B3n%20%F0%9F%98%8A" class="service-link" target="_blank" rel="noopener">Más información <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="service-card rv rv-3">
+      <div class="service-num">03</div>
+      <h3>Estrategia de Contenido</h3>
+      <p>Planificación estratégica diseñada para conectar con tu audiencia, atraer clientes ideales y vender de forma natural.</p>
+      <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20info%20sobre%20estrategia%20de%20contenido%20%F0%9F%98%8A" class="service-link" target="_blank" rel="noopener">Quiero saber más <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+<div class="container">
+  <div class="s-header rv">
+    <div class="s-label">Beneficios</div>
+    <h2 class="s-title">Lo que lográs cuando tenés <em>claridad</em></h2>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card rv rv-1">
+      <div class="benefit-mark">C</div>
+      <h4>Claridad para comunicar</h4>
+      <p>Sabés exactamente qué decir, cuándo y por qué. Sin dudas ni bloqueos.</p>
+    </div>
+    <div class="benefit-card rv rv-2">
+      <div class="benefit-mark">E</div>
+      <h4>Estrategia para vender</h4>
+      <p>Tu contenido trabaja por vos, atrayendo clientes de forma natural.</p>
+    </div>
+    <div class="benefit-card rv rv-3">
+      <div class="benefit-mark">O</div>
+      <h4>Organización y enfoque</h4>
+      <p>Un sistema simple para producir contenido sin estrés ni agotamiento.</p>
+    </div>
+    <div class="benefit-card rv rv-4">
+      <div class="benefit-mark">S</div>
+      <h4>Confianza al crear</h4>
+      <p>Comunicás con seguridad porque tu mensaje está alineado con tu marca.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonios">
+<div class="container">
+  <div class="s-header rv">
+    <div class="s-label">Testimonios</div>
+    <h2 class="s-title">Emprendedoras que ya dieron <em>el paso</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="test-card rv rv-1">
+      <div class="test-quote"><p>Antes publicaba sin rumbo. Después de trabajar con Ale, cada post tiene un propósito y mis ventas mejoraron un montón. Es clarísima explicando.</p></div>
+      <div class="test-author"><div class="test-avatar">M</div><div><div class="test-name">Martina R.</div><div class="test-role">Emprendedora · Moda</div></div></div>
+    </div>
+    <div class="test-card rv rv-2">
+      <div class="test-quote"><p>La mentoría me cambió la cabeza. Pasé de sentir que no tenía nada para decir a tener un mes entero planificado con contenido que conecta.</p></div>
+      <div class="test-author"><div class="test-avatar">S</div><div><div class="test-name">Sol G.</div><div class="test-role">Coach de bienestar</div></div></div>
+    </div>
+    <div class="test-card rv rv-3">
+      <div class="test-quote"><p>Ale entiende a las emprendedoras porque pasó por lo mismo. Su asesoría es concreta, práctica y me dio la confianza que necesitaba para vender.</p></div>
+      <div class="test-author"><div class="test-avatar">L</div><div><div class="test-name">Laura P.</div><div class="test-role">Repostería artesanal</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="contacto">
+<div class="container">
+  <div class="form-wrap rv">
+    <div class="s-header">
+      <div class="s-label">Aplicá ahora</div>
+      <h2 class="s-title">Quiero conocer tu <em>emprendimiento</em></h2>
+      <p>Completá el formulario y me pongo en contacto para charlar sobre cómo puedo ayudarte.</p>
+    </div>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYx0o5zIfrmxvIhHMfSkb2l7i5czKhIFieiDgXiluD9ybsNQ/viewform?embedded=true" loading="lazy" title="Formulario de contacto">Cargando…</iframe>
+  </div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+<div class="container final-content rv">
+  <div class="final-line"></div>
+  <h2>Es momento de dejar de improvisar y empezar a crear contenido que realmente <em>conecte y venda.</em></h2>
+  <p>Tu próximo paso está a un mensaje de distancia.</p>
+  <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20asesor%C3%ADas%20y%20c%C3%B3mo%20pod%C3%A9s%20ayudarme%20a%20mejorar%20mi%20estrategia%20de%20contenido%20%F0%9F%98%8A%E2%9C%A8" class="btn btn--light" target="_blank" rel="noopener">Escribime por WhatsApp <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-brand"><em>Ale</em> en Redes</div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20asesor%C3%ADas%20y%20c%C3%B3mo%20pod%C3%A9s%20ayudarme%20a%20mejorar%20mi%20estrategia%20de%20contenido%20%F0%9F%98%8A%E2%9C%A8" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer-social footer-social--wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  </div>
+  <p>&copy; 2026 Ale en Redes. Todos los derechos reservados.</p>
+</div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://api.whatsapp.com/send/?phone=542262353508&text=Hola%20Ale,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20asesor%C3%ADas%20y%20c%C3%B3mo%20pod%C3%A9s%20ayudarme%20a%20mejorar%20mi%20estrategia%20de%20contenido%20%F0%9F%98%8A%E2%9C%A8" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+<div class="wa-btn"><div class="wa-ring"></div><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+</a>
+
+<script>
+const n=document.getElementById('nav');let tk=false;
+window.addEventListener('scroll',()=>{if(!tk){requestAnimationFrame(()=>{n.classList.toggle('scrolled',scrollY>50);tk=false});tk=true}},{passive:true});
+document.querySelectorAll('.rv').forEach(el=>{new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('vis');i.target._o&&i.target._o.disconnect()}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'}).observe(el);});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
